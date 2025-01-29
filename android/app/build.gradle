@@ -41,7 +41,8 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        versionCode 1  // Increment this with every new release
+        versionName "1.0.0"  // Set your app version name
         applicationId "io.medimeet.app.medimeet"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
