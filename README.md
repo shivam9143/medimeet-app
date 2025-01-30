@@ -2,6 +2,8 @@
 
 🚀 **MediMeet** is a modern **healthcare appointment system** that simplifies doctor-patient interactions. It allows patients to **book, manage, and cancel appointments** with ease while ensuring a **smooth user experience**.  
 
+[APK File](https://github.com/shivam9143/medimeet-app/blob/master/app-release.apk)
+
 ## 📸 Screenshots  
 
 | Login | Dashboard | Appointment Booking |  
