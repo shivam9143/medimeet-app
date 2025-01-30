@@ -106,7 +106,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
   }
 
   String formatTime(String time) {
-    final DateTime parsedTime = DateTime.parse(time);
+    final DateTime parsedTime = DateTime.parse(time).toLocal();
     final DateFormat dateFormat = DateFormat('dd MMM, hh:mm a');
     return dateFormat.format(parsedTime);
   }
@@ -188,6 +188,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
 
                           // Check if the slot is in the future
                           bool isSlotInPast = DateTime.parse(slot.startTime)
+                              .toLocal()
                               .isBefore(DateTime.now());
 
                           return Card(
