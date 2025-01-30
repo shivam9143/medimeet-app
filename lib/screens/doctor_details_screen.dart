@@ -33,7 +33,21 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
     final url =
         'https://api.rabattindia.com/clinic-management/doctors/${widget.doctor.id}/slots/';
     try {
-      final response = await http.get(Uri.parse(url));
+      final prefs = await SharedPreferences.getInstance();
+      final String? token = prefs.getString('authToken');
+
+      if (token == null) {
+        throw Exception("No token found.");
+      }
+
+      final response = await http.get(
+        Uri.parse(url),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
+
       if (response.statusCode == 200) {
         final List data = json.decode(response.body);
         setState(() {

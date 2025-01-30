@@ -34,8 +34,9 @@ class UserProfileScreen extends StatelessWidget {
     // Navigate to the login screen
     Navigator.pushAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => LoginScreen()), // Replace LoginScreen with your actual login screen
-          (route) => false, // Remove all previous routes
+      MaterialPageRoute(builder: (context) => LoginScreen()),
+      // Replace LoginScreen with your actual login screen
+      (route) => false, // Remove all previous routes
     );
   }
 
@@ -104,10 +105,14 @@ class UserProfileScreen extends StatelessWidget {
                       ),
                       child: Column(
                         children: [
-                          _buildProfileTile(Icons.account_circle, "Name: ${userData?['name']}"),
-                          _buildProfileTile(Icons.phone, "Mobile: ${userData?['mobile']}"),
-                          _buildProfileTile(Icons.cake, "Age: ${userData?['age']}"),
-                          _buildProfileTile(Icons.transgender, "Gender: ${userData?['gender']}"),
+                          _buildProfileTile(Icons.account_circle,
+                              "Name: ${userData?['name']}"),
+                          _buildProfileTile(
+                              Icons.phone, "Mobile: ${userData?['mobile']}"),
+                          _buildProfileTile(
+                              Icons.cake, "Age: ${userData?['age']}"),
+                          _buildProfileTile(Icons.transgender,
+                              "Gender: ${userData?['gender']}"),
                         ],
                       ),
                     ),
@@ -118,14 +123,17 @@ class UserProfileScreen extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () => _logout(context),
                       icon: Icon(Icons.exit_to_app, color: Colors.white),
-                      label: Text("Logout", style: TextStyle(color: Colors.white)),
+                      label:
+                          Text("Logout", style: TextStyle(color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         primary: Colors.red, // Red color for logout
-                        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30),
                         ),
-                        textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                        textStyle: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w600),
                       ),
                     ),
                   ],

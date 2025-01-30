@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/doctor.dart';
 
 class DoctorProvider with ChangeNotifier {
@@ -16,10 +17,21 @@ class DoctorProvider with ChangeNotifier {
     notifyListeners();
 
     try {
+      final prefs = await SharedPreferences.getInstance();
+      final String? token = prefs.getString('authToken');
+
+      if (token == null) {
+        throw Exception("No token found.");
+      }
+
       final response = await http.get(
         Uri.parse('https://api.rabattindia.com/doctors/'),
-        headers: {"Content-Type": "application/json"},
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
       );
+
       if (response.statusCode == 200) {
         final List data = json.decode(response.body)['data'];
         if (data != null) {
